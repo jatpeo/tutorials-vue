@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//1 setTimeOut()
+//     setTimeout(()=>{
+//         console.log('hello world');
+//     },1000)
+
+// 参数  函数(resolve,reject)
+//reslove reject 也是函数
+    // 模拟三次异步操作
+    // new Promise((resolve, reject)=>{
+    //     // 第一次网络请求
+    //     setTimeout(()=>{
+    //        resolve()
+    //     },1000)
+    // }).then(()=>{
+    //     //第一次结果处理代码
+    //     console.log('hello vue');
+    //     return new Promise((resolve, reject) => {
+    //         //第二次网络请求代码
+    //         setTimeout(()=>{
+    //             resolve()
+    //         },1000)
+    //     }).then(()=>{
+    //         //第二次结果处理代码
+    //         console.log('hello react');
+    //         return new Promise((resolve, reject) => {
+    //             //第三次网络请求代码
+    //             setTimeout(()=>{
+    //                 resolve()
+    //             },1000)
+    //         }).then(()=>{
+    //             //第三次结果处理代码
+    //             console.log('hello angular');
+    //         })
+    //     })
+    // })
+
+    // 2 什么情况下会用到Promise?
+    //一般情况下有异步操作，使用Promise对这个异步操作进行封装
+    // new ->构造函数 1保存一些状态信息 ，2 执行传入函数
+    //在执行传入的回调函数时，回传入两个参数，resolve和reject 本身又是函数
+    new Promise((resolve, reject) => {
+        setTimeout((data)=>{
+            //1 成功时调用resolve
+          //  resolve('hello world')
+            //2 失败的时候调用reject
+            reject('error msg')
+        },1000)
+    }).then((data)=>{
+        //这里进行处理代码逻辑
+        console.log(data);
+        console.log(data);
+        console.log(data);
+
+    }).catch((err)=>{
+        console.log(err);
+        console.log(err);
+        console.log(err);
+
+    })
+
+</script>

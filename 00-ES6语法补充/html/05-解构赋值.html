@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		/**
+		 * 0 对象的解构赋值
+		 * key value要对应
+		 */
+		// const obj = {
+		// 	name: 'lisi',
+		// 	age: 15
+		// }
+		// let{ name1,age} = obj;
+		// console.log(name+''+age)
+		
+		/**
+		 * 赋值给不同的本地变量名
+		 */
+		// let {name:myname,age:myage} = obj;
+		// console.log(myname+"--"+myage)
+		
+		/**
+		 * 解构赋值 
+		 * 1 使用数组成员对变量赋值时，优先使用解构赋值。
+		 */
+		// const arr = [1, 2, 3, 4, 5];
+
+		//es5
+		// const a = arr[0];
+		// const b = arr[1];
+
+		//es6
+		// const [c, d] = arr;
+		// console.log(c)
+		 
+
+		/**
+		 * 2 函数的参数如果是对象的成员，优先使用解构赋值
+		 */
+		// const user = {
+		// 	name: 'lisi',
+		// 	age: 15
+		// }
+		// bad
+		// function getUser(user) {
+		// 	const a = user.name;
+		// 	const b = user.age;
+		// 	return a + b;
+		// }
+		// console.log(getUser(user))
+
+		//es6 good
+		// function getUser1(obj) {
+		// 	const {a,b} = obj;
+		// }
+
+		// //best
+		// function getUser2({a,b}) {
+		// }
+		/**
+		 * 3 如果函数返回多个值，优先使用对象的解构赋值，而不是数组的解构赋值。这样便于以后添加返回值，以及更改返回值的顺序。
+		 */
+			//bad
+		// function processInput(input){
+		// 	return [left,right,bottom,top];
+		// }
+			//good
+	// bad
+	// function processInput(input) {
+	//   return [left, right, top, bottom];
+	// }
+		const obj = {
+				name: 'lisi',
+				age: 15,
+				sex:'male'
+			}
+		// good
+		function processInput(input) {
+			let{ name,age,sex} = input;
+			console.log(name)
+			return {name,age,sex}; //返回多个值
+		}
+		 console.log(processInput(obj))
+		 const { sex, age } = processInput(obj);
+		 console.log(sex+'...'+age);
+	
+	</script>
+	<body>
+	</body>
+</html>

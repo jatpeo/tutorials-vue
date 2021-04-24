@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+			 <cpn v-show="flag"></cpn>
+    </div>
+<template id="cpn">
+	<div>
+		<slot name="left" v-show="flag"><span>left</span></slot>
+	</div>
+</template>
+<!-- 
+父组件模板的所有东西都会在父级作用域内编译；子组件模板的所有东西都会在子级作用域内编译
+ -->
+    <script src="../js/vue.js"></script>
+    <script>
+		const cpn  = {
+			template:"#cpn",
+		}
+        const app = new Vue({
+            el:"#app",  
+            data:{
+                flag:true
+            },
+						components:{
+							cpn
+						}
+        })
+    </script>
+</body>
+</html>

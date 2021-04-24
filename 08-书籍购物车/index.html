@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Title</title>
+<link rel="stylesheet" href="style.css"/>
+<body>
+<div id="app">
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item,index) in books">
+            <th>{{index+1}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.date}}</th>
+            <!-- <th>{{getfinalprice(item.price)}}</th> -->
+            <th>{{item.price | showPrice}}</th>
+            <th>
+                <button type="button" @click="increment(index)">+</button>
+                {{item.number}}
+                <button type="button" @click="decrement(index)" :disabled="item.number<=1">-</button>
+            </th>
+            <th>
+                <button type="button" @click="remove(index)">移除</button>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+    <h3>{{getTotalPrice}}</h3>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",  //用户要挂载管理的元素
+        data: {
+            books: [
+                {
+                    name: 'Vue入门大全',
+                    date: '2021-02-23',
+                    price: 78.353,
+                    number: 7
+                },
+                {
+                    name: '水浒传',
+                    date: '1689-12-03',
+                    price: 45,
+                    number: 5
+                },
+                {
+                    name: 'Apple',
+                    date: '1989-12-03',
+                    price: 6999,
+                    number: 2
+                }
+            ],
+            msg: 'hello'
+        },
+        methods: {
+            //返回总价格 或者使用Vue过滤器
+            getfinalprice(price) {
+                return '$' + price.toFixed(2);
+            },
+            increment(index) {
+                this.books[index].number++;
+            },
+            decrement(index) {
+                this.books[index].number--;
+            },
+            remove(index) {
+                this.books.splice(index, 1);
+            }
+        },
+        filters: {
+            //价格过滤器
+            showPrice(price) {
+                return '$' + price.toFixed(2);
+            }
+
+        },
+        computed: {
+            //使用reduce遍历数组求和
+            getTotalPrice() {
+                return '总价格:' + this.books.reduce((prev, curr) => {
+                    return prev + curr.price * curr.number;
+                }, 0)
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

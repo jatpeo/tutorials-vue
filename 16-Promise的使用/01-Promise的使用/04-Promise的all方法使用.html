@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //请求1
+    // +
+    //请求2
+
+    // =》 发送     网络请求1和网络请求2 一起构成一次业务请求
+
+    Promise.all([
+        new Promise((resolve, reject) => {
+            //网络请求 1
+            setTimeout(()=>{
+                resolve('resolve1')
+            },2000)
+        }),
+        new Promise((resolve, reject) => {
+            //网络请求 2
+            setTimeout(()=>{
+                resolve('resolve2')
+            },2000)
+        })
+    ]).then((results)=>{
+        console.log(results);  //两次请求完成后的结果...
+    })
+
+
+
+
+</script>

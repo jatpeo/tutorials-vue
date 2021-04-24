@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+        .active{
+            color:red
+        }
+        .test1{
+            color: yellow;
+        }
+        .test2{
+           background-color: teal;
+        }
+    </style>
+<body>
+    <div id="app">
+       <h3 :class="['test2']">{{msg}}</h3>
+       <h3 :class="['test2','test1']">{{msg}}</h3>
+       <h3 :class="['test2',a1,a2]">{{msg}}</h3>
+       <h3 :class="getClass()">{{msg}}</h3>
+    </div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+           msg:'hello',
+           active:'active',
+           a1:'aaa',
+           a2:'bbb'
+        },
+        methods:{
+            getClass(){
+                return [this.a1,this.a2]
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

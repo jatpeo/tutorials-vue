@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Title</title>
+
+<body>
+    <div id="app">
+       <h2 v-if="scope>=90">优秀</h2>
+	   <h2 v-else-if="scope>=80">良好</h2>
+	   <h2 v-else-if="scope>=60">及格</h2>
+	   <h2 v-else>不及格</h2>
+	   
+	   <h1>{{result}}</h1>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({ 
+            el: "#app", //用户要挂载管理的元素
+            data: {
+               scope:99
+            },
+            methods: {
+				
+            },
+			computed:{   
+				result(){
+					let showMsg = '';
+					if(this.scope>=90){
+						showMsg ='优秀';
+					}else if(this.scope>=80){
+						showMsg ='良好';
+					}else if(this.scope>=60){
+						showMsg ='及格';
+					}else{
+						showMsg ='不及格';
+					}
+					return showMsg;
+				}
+			}
+        })
+    </script>
+</body>
+
+</html>

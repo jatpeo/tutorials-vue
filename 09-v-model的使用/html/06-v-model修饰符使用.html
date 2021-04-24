@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+		<!-- 1 .lazy失去焦点或者回车才会起作用 -->
+		<input type="text" v-model.lazy="msg"/>
+		<h2>{{msg}}</h2>
+		<!-- 2 .number 让输入的数值转为number类型 -->
+		<input type="text" v-model.number="age"/>
+		<h3>{{typeof(age)}}</h3>
+		
+		<!-- 2 .trim让输入的数值去除空格 -->
+		<input type="text" v-model.trim="name"/>
+		<h3>{{name}}</h3>
+	</div>
+    <script src="../js/vue.js"></script>
+    <script>
+      
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+			  msg:'',
+			  age:0,
+			  name:''
+            }
+        })
+    </script>
+</body>
+</html>

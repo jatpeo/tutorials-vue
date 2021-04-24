@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--1 块级元素-->
+<div class="box">
+    <div class="item item1">item1</div>
+    <div class="item item2">item2</div>
+    <div class="item item3">item3</div>
+    <div class="item item1">item4</div>
+    <div class="item item2">item5</div>
+    <div class="item item3">item6</div>
+    <div class="item item1">item7</div>
+    <div class="item item2">item8</div>
+    <div class="item item3">item9</div>
+</div>
+<!--2 行内聚元素-->
+<strong>string行内聚元素</strong>
+</body>
+</html>
+<style>
+    .box {
+        /* 开启flex布局
+        flex  块级元素
+        inline-flex  行级元素
+        */
+        height: 550px;
+        width: 400px;
+        background-color: orange;
+        /*display: inline-flex;*/
+        margin: 0 auto;
+        display: flex;
+
+        /*
+        2   flex-direction:row | row-reverse |  column | column-reverse;
+            flex-direction属性决定主轴的方向（即项目的排列方向）。
+        */
+        /*flex-direction: row;*/
+
+        /*
+        3    justify-content属性
+             justify-content属性定义了项目在主轴上的对齐方式
+             justify-content:flex-start | flex-end | center | space-between |space-around; space-evenly 平均分
+         */
+        /*justify-content: flex-start;*/
+
+        /*
+        4   align-items属性
+            align-items属性定义项目在交叉轴上如何对齐。
+            align-items:flex-start | flex-end | center |baseline | stretch;
+        */
+        /*align-items: normal;*/
+        /*
+        5 flex-wrap属性 默认都在同一行，压缩
+        flex-wrap: nowrap | wrap | wrap-reverse;
+        */
+        /*flex-wrap: wrap;*/
+
+        /*
+            6
+            flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认 row nowrap。
+        */
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+
+        /*
+        7 align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+        */
+        align-content: space-evenly;
+
+    }
+
+    .item {
+        width: 90px;
+        height: 90px;
+        color: #fff;
+        text-align: center;
+        line-height: 100px;
+    }
+
+    .item1 {
+        background-color: #f00;
+    }
+
+    .item2 {
+        background-color: #0f0;
+    }
+
+    .item3 {
+
+        background-color: #00f;
+    }
+</style>

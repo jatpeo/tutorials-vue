@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app">
+        <img v-bind:src="url" alt="" srcset="">
+        <!-- 语法糖写法 : -->
+        <a :href="href">百度一下</a> 
+    </div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            url:'https://www.baidu.com/img/dong_8f1d47bcb77d74a1e029d8cbb3b33854.gif',
+            href:'https://www.baidu.com/'
+        }
+    })
+
+</script>
+</body>
+</html>

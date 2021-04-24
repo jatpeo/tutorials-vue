@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+        <!-- 1 遍历不需要索引 -->
+		 <ul>
+		 	<li v-for="item in names">{{item}}</li>
+		 </ul>
+		 <!-- 2 遍历需要索引 -->
+		 <ul>
+		 	<li v-for="(item,index) in names">{{index}}--{{item}}</li>
+		 </ul>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+                names:['joobs','lisi','jjj','sfds']
+            }
+        })
+    </script>
+</body>
+</html>

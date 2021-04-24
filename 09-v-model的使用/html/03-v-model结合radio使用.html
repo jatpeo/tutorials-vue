@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+	<!-- 
+	v-model代替input中name属性，服务器直接取数据
+	 -->
+        <label for="male">
+			<input type="radio" id="male"  value="男" v-model="sex"/>男
+		</label>
+		
+		<label for="female">
+			<input type="radio" id="female" value="女" v-model="sex"/>女
+		</label>
+		<h3>选中的是：{{sex}}</h3>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+               sex:'男'
+            }
+        })
+    </script>
+</body>
+</html>

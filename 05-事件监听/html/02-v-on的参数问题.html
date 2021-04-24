@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+	  <!--  1 事件调用中没有参数 ()可加不可加-->
+      <button type="button" @click="btnclick">按钮1</button>
+	  <button type="button" @click="btnclick()">按钮1</button>
+	  <!--  2 在事件定义时，省略小括号，方法本身需要一个参数，如果不传参数，
+			vue默认会将浏览器生产的event对象作为参数传入函数中 -->
+	  <button type="button" @click="btnclick2">按钮2</button>
+	  <!--  3 方法定义时，需要Event对象，同时需要其他参数 -->$event 代替浏览器创建的对象-->
+	  <button type="button" @click="btnclick3(123,$event)">按钮3</button>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+         
+            },
+			methods:{
+				btnclick(){
+					console.log('btn1')
+				},
+				btnclick2(a){
+					console.log('btn2......'+a)
+				},
+				btnclick3(a,event){
+					console.log('---'+a+'----'+event)
+				}
+			}
+        })
+    </script>
+</body>
+</html>

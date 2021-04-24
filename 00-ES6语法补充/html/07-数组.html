@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		/**
+		 * 1 使用扩展运算符（...）拷贝数组。
+		 */
+		const items =[1,2,3,4,5,6,7,8,9,0];
+		
+		//bad
+		// const itemsCopy = [];
+		// for (var i = 0; i < items.length; i++) {
+		// 		itemsCopy[i] = items[i]
+		// }
+		
+		//es6
+		const itemsCopy = [...items]
+		
+		console.log(itemsCopy)
+		
+		/**
+		 * 2 使用 Array.from 方法，将类似数组的对象转为数组。
+		 */
+		const nodes = Array.from(obj);
+		console.log(nodes);
+		
+		
+		
+	</script>
+	<body>
+	</body>
+</html>

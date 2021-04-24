@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+			 <cpn<span slot="center">我是中间的</span></cpn>
+    </div>
+<template id="cpn">
+	<div>
+		<slot name="left"><span>left</span></slot>
+		<slot name="center"><span>center</span></slot>
+		<slot name="right"><span>right</span></slot>
+	</div>
+</template>
+<!-- 
+1 插槽的基本使用
+2 插槽的默认值 <slot><span>sss<span></slot>
+3.多个值同时放在组件中进行替换，一起作为替换元素。
+ 
+ -->
+    <script src="../js/vue.js"></script>
+    <script>
+		const cpn  = {
+			template:"#cpn",
+		}
+        const app = new Vue({
+            el:"#app",  
+            data:{
+                msg:'你好啊李欢迎'
+            },
+						components:{
+							cpn
+						}
+        })
+    </script>
+</body>
+</html>

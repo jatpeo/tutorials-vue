@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+        .active{
+            color:red
+        }
+        .test1{
+            color: yellow;
+        }
+        .test2{
+           background-color: teal;
+        }
+    </style>
+<body>
+    <div id="app">
+        <!-- 普通版 字符串形式 -->
+       <h3 :class="active">{{msg}}</h3>
+        <!-- 对象语法 形式如下-->
+       <!-- <h3 :class="{类名1:boolean，类名2:boolean}">{{msg}}</h3> -->
+       <h3 :class="{test1:true,test2:true}">{{msg}}</h3>
+       <!-- 对象语法补充 -->
+       <h4 :class='getClass()'>{{msg}}</h4>
+       <button @click='btnClick'>点一下</button>
+    </div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+           msg:'hello',
+           active:'active',
+           test2:'test2',
+           test1:true
+        },
+        methods:{
+            getClass(){
+                //return {test2:true,active:true}
+                return {test1:this.test1}
+            },
+            btnClick(){
+                return this.test1 = !this.test1
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

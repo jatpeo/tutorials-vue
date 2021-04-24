@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Title</title>
+
+<body>
+    <div id="app">
+        <h2>{{fullname}}</h2>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({ 
+            el: "#app", //用户要挂载管理的元素
+            data: {
+                counter: 0
+            },
+						computed:{
+							fullname:{
+								//计算属性一般没有set方法
+								// set(){
+								// 	console.log("set")
+								// },
+								get(){
+									return "张三"
+								}
+							}
+						}
+        
+        })
+    </script>
+</body>
+
+</html>

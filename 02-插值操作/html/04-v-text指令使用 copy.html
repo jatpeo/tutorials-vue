@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app">
+        <!-- 会拼接 -->
+        <h3>{{msg}},Apple</h3>
+        <!-- 会覆盖现有的 -->
+        <h3 v-text='msg'> apple </h3> 
+    </div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+           msg:'hello world'
+        }
+    })
+
+</script>
+</body>
+</html>

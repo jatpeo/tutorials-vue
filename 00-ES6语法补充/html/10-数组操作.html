@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		/**
+		 * ES6 数组方法map(),filter(),reduce()和find()
+		 */
+		const arr =[1,2,3,4];
+		/**
+		 * 1 map map函数可以看成是一种映射函数，而且是一一映射。
+			对每一个元素*2，装在一个新的数组返回
+		 */
+		let mapArr = arr.map((item,index)=>item*2)
+		//console.log(mapArr)
+		
+		/**
+		 * 2 filter filter函数可以看成是一个过滤函数，返回符合条件的元素的数组。
+		  filter和map的区别：filter需要在循环的时候判断一下是true还是false，是true才会返回这个元素；map没有这个过程。
+		 */
+		let filterArr = arr.filter((item,index)=>{
+			return item>2; //判断 只寸入>2的元素
+		})
+		
+		let item = [
+			{name:'张三',age:13},
+			{name:'李四',age:23},
+			{name:'王五',age:33}
+		]
+		let itemArr = item.filter((item,index)=>{
+				return item.name =="张三"
+		})
+		console.log(itemArr);
+		
+		//console.log(filterArr)
+		
+		
+		
+		/**
+		 * 3 reduce函数可以理解成一个迭代函数。
+		 * arr.reduce(callback,[initialValue])
+		 * 
+		callback （执行数组中每个值的函数，包含四个参数）
+			1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+			2、currentValue （数组中当前被处理的元素）
+			3、index （当前元素在数组中的索引）
+			4、array （调用 reduce 的数组）
+		initialValue （作为第一次调用 callback 的第一个参数。）
+		 * 简单用法：求和求乘积
+		 * 如果没有提供initialValue，reduce 会从索引1的地方开始执行 callback 方法，跳过第一个索引。如果提供initialValue，从索引0开始,
+		 * reduce 遍历对象数组时，initialValue=0
+		 */
+		  //..1 不设置初始值 索引=1 开始遍历
+		 let reduceArr = arr.reduce((prev,curr,index,arr)=>{
+			 return prev+curr;
+		 })
+		 //console.log(reduceArr)
+		 //..2 设置初始值
+		//..1 不设置初始值 从头遍历 索引=0 开始遍历
+		let reduceArr1 = arr.reduce((prev,curr,index,arr)=>{
+					 return prev+curr;
+		},1);
+		 //console.log(reduceArr1)
+		 
+		 
+		 
+		 /**
+			* find
+			* 4 find是返回第一次符合函数条件的数组里的元素
+			*/
+		  let findArr = arr.find((item,index)=>{
+				 return item >2; ////最后返回第一个大于2的数值
+			})
+		//	console.log(findArr)
+		
+		
+		
+		/**
+		 * 5 for in  for of
+		 *  推荐在循环对象属性的时候，使用for...in,在遍历数组的时候的时候使用for...of。
+				for...in循环出的是key，for...of循环出的是value
+				注意，for...of是ES6新引入的特性。修复了ES5引入的for...in的不足
+				for...of不能循环普通的对象，需要通过和Object.keys()搭配使用
+		 */
+		let aArray = ['a',123,{a:'1',b:'2'}];
+		for(let index in aArray){
+		  //  console.log(`${aArray[index]}`);
+		}
+		for(var value of aArray){
+		  //  console.log(value);
+		}
+		//区别
+		aArray.name = 'demo';
+		
+		for(let index in aArray){
+		  // console.log(`${aArray[index]}`);  //aArray.name也被循环出来了
+		}
+		console.log('--')
+		for(var value of aArray){
+		  //  console.log(value);
+		}
+		/**
+		 * for...of循环不会循环对象的key，只会循环出数组的value，因此for...of不能循环遍历普通对象,对普通对象的属性遍历推荐使用for...in
+		 * for...of来遍历普通对象的属性的话，可以通过和Object.keys()搭配使用
+		 */
+		var student={
+		    name:'wujunchuan',
+		    age:22,
+		    locate:{
+		    country:'china',
+		    city:'xiamen',
+		    school:'XMUT'
+		    }
+		}
+		for(var key of Object.keys(student)){
+		    //使用Object.keys()方法获取对象key的数组
+		   // console.log(key+": "+student[key]);
+		}
+	</script>
+	<body>
+	</body>
+</html>

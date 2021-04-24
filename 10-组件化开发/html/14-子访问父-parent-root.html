@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+		<div id="app">
+			<cpn></cpn>
+		</div>
+	</body>
+</html>
+<template id="cpn">
+	<div>
+		<h3>cpn子组件</h3>
+		<con></con>
+	</div>
+</template>
+<template id="con">
+	<div>
+		<h3> con子组件</h3>
+		<button type="button" @click="btnClick">按钮（子组件）</button>
+	</div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+	const con = {
+		template:"#con",
+		methods:{
+			btnClick(){
+				/**
+				 * 1 访问父组件的属性$parent
+				 * 开发中使用较少
+				 */
+				//console.log(this.$parent.name)
+				/**
+				 * 2 访问根组件$root 用的较少
+				 */
+				console.log(this.$root)
+			}
+		},
+	}
+	
+	const cpn = {
+		template:"#cpn",
+		components:{
+			con
+		},
+		data(){
+			return{
+				name:'我是cpn的name'
+			}
+		}
+	}
+	const app = new Vue({
+		el:"#app",
+		data:{
+			
+		},
+		methods:{
+			
+		},
+		components:{
+			cpn
+		}
+	})
+	
+</script>

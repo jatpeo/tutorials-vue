@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+      <my-temp></my-temp>
+    </div>
+		
+		<template id="myTemp2">
+			<div>
+				<h2>template写法2 ---{{msg}}</h2>
+			</div>
+		</template>
+</body>
+</html>
+<!-- 
+		1 写法1 <script>
+		<script type="text/x-template" id="myTemp1">
+	     <<div>
+	     	<h2>我是模版抽离写法 script</h2>
+	     </div>
+		</script> -->
+
+    <script src="../js/vue.js"></script>
+    <script>
+			/**
+			 * 模版分离写法 
+			 * 1 <script>
+			 * 2 <template>标签
+			 */
+        const app = new Vue({
+            el:"#app",  
+            data:{
+                
+            },
+            components:{
+                'my-temp':{
+                    template:'#myTemp2',
+                    data(){
+                        return {
+                            msg:'hello'
+                        }
+
+                    }
+                }
+            }
+        })
+    </script>

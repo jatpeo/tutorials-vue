@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--1 块级元素-->
+<div class="box">
+    <div class="item item1">item1</div>
+    <div class="item item2">item2</div>
+    <div class="item item3">item3</div>
+    <div class="item item1">item4</div>
+    <div class="item item2">item5</div>
+    <div class="item item3">item6</div>
+    <div class="item item1">item7</div>
+    <div class="item item2">item8</div>
+    <div class="item item3">item9</div>
+    <div class="item item1">item10</div>
+</div>
+</body>
+</html>
+<style>
+    .box {
+        /* 开启flex布局
+        flex  块级元素
+        inline-flex  行级元素
+        */
+        height: 500px;
+        width: 400px;
+        background-color: orange;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    .item {
+        width: 90px;
+        height: 90px;
+        color: #fff;
+        text-align: center;
+        line-height: 100px;
+        margin-top: 15px;
+    }
+
+    .item:not(:nth-child(4n)) {
+        margin-right: calc(4% / 3);
+    }
+
+
+    .item1 {
+        background-color: #f00;
+        /*
+        order 值越小 越往前
+        */
+        /*order: 6;*/
+        /*flex-grow: 0.2;*/
+    }
+
+    .item2 {
+        background-color: #0f0;
+        /*flex-grow: 0.2;*/
+        /*order: 16;*/
+    }
+
+    .item3 {
+
+        background-color: #00f;
+        /*flex-grow: 0.2;*/
+        /*order: 100;*/
+        /*定义该元素的排序方式 在交叉轴*/
+        /*align-self: flex-end;*/
+    }
+</style>

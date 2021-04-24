@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		//注意 1 const 修饰的标识符赋值之后不能改变
+		// const a = 'hello';
+		// a = 'hi'
+		
+		// 2 const 修饰标识符必须进行赋值
+		//const b;
+		
+		// 3 常量含义是 指向的对象不能改变，可修改内部的属性
+		const obj = {
+			name: 'lisi',
+			age: 12
+		}
+		obj.age=24
+		console.log(obj)
+	</script>
+	<body>
+	</body>
+</html>

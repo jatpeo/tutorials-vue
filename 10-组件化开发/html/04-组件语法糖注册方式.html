@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+       <my-cpn></my-cpn>
+	   <cpp></cpp>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+		/**
+		 * 1 全局组件注册的语法糖(2.x版本内部将extend对象默认传过来)
+		 */
+	   Vue.component('my-cpn',{
+		   template:`
+		  <div>
+			  <h2>我是标题2</h2>
+			  <h3>我是内容2.....嘿嘿嘿</h3>
+		  </div>
+		   `
+	   });
+	   
+        const app = new Vue({
+            el:"#app",  
+            data:{
+                
+            },
+			components:{   //局部组件注册 语法糖方式
+				'cpp':{
+					template:`
+					<div>
+					  <h2>我是标题1</h2>
+					  <h3>我是内容1.....guaguaaa</h3>
+					</div>
+					 `
+				}
+			}
+        })
+    </script>
+</body>
+</html>

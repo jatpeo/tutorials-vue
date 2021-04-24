@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+	 <h2 v-if="flag">{{msg1}}</h2> 
+	 <h2 v-else>{{msg2}}</h2>
+	 <button type="button" @click="choose">切换</button>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+				msg1:"黑",
+				msg2:'白',
+				flag:false
+            },
+			methods:{
+				choose(){
+					this.flag = !this.flag
+				}
+			}
+        })
+    </script>
+</body>
+</html>

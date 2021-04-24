@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Title</title>
+
+<body>
+    <div id="app">
+       <div @click="divClick">
+		   <!-- 1 阻止事件冒泡  .stop-->
+       	 <button @click.stop="btnClick">按钮</button>
+       </div>
+	   <br>
+	   <!-- 2 .prevent 阻止默认事件
+		不加：点击提交会进行直接提交
+		加：可以自定义提交前的验证规则
+	   -->
+	   <form action="baidu">
+	   	<input type="submit" value="提交" @click.prevent="submitClick"/>
+	   </form>
+	   <br>
+	   
+	   <!-- 3 监听某个键盘的键帽 -->
+	   <input type="text" name="" id="" value="" @keyup.enter="keyUp"/>
+	   <br>
+	   <!-- 4 native -->
+	   <!-- 5 .once 只触发一次 -->
+	   <button type="button" @click.once="btn2Click">按钮2</button>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({ 
+            el: "#app", //用户要挂载管理的元素
+            data: {
+                counter: 0
+            },
+            methods: {
+				divClick(){
+					console.log('divClick...')
+				},
+				btnClick(){
+					console.log('btnClick ....')
+				},
+				submitClick(){
+					console.log('submit....')
+				},
+				keyUp(){
+					console.log('keyup')
+				},
+				btn2Click(){
+					console.log('btn2....只点击一次')
+				}
+            }
+        })
+    </script>
+</body>
+
+</html>

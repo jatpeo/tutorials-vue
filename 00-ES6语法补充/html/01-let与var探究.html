@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+		<script>
+			//1、重复声明问题
+				// {
+				// let a ='zhangsan'
+				// //let a ='zhangsan1'
+				// console.log(a)
+				
+				// var b ='lisi'
+				// var b = 'lisi1'
+				// console.log(b)
+				// }
+			//2 块级作用域引起的问题 if块级  var没有块级
+			// var func
+			// 	if(true){
+			// 		var name = 'jj';
+			// 		func = function(){
+			// 			console.log(name)
+			// 		}
+					
+			// 	}
+			// 	//console.log(name)
+			// 	func()
+				
+			//3 块级作用域引起的问题 for块级 var没有块级
+			//es5
+	 //    var a =[]; //var
+		// 	for (var i = 0; i < 5; i++) {
+		// 		a[i]=function(){
+		// 			console.log(i)
+		// 		}
+		// 	}
+		//  a[1]();//5
+		// a[2]();//5
+		// a[3]();//5
+		
+		//for循环用let
+		// var b = [];
+		// for (let i = 0; i < 5; i++) {
+		//   b[i] = function () {
+		//     console.log(i);
+		//   };
+		// }
+		// b[1]();//1
+		// b[2]();//2
+		// b[3]();//3
+		
+		/**
+		 * ps：es5 解决if，for作用域 可以使用闭包，利用函数有作用域
+		 * */
+		var btns = document.getElementsByTagName('button');
+		for(var i=0;i<5;i++){
+			(function(num){
+				btns[i].addEventListener('click',function(){
+				 console.log("第"+num+"个按钮被点击")
+				   })
+			})(i) //调用匿名函数
+		}
+	
+		
+		//or循环中设置循环变量的部位是一个父作用域，循环体内部是个子作用域。
+		{
+		  let a = 1;
+		  {
+		    //console.log(a);//报错，暂时性死域，在let a前面使用a不合法
+		    let a = 2;
+		    console.log(a);//2
+		  }
+		  console.log(a);//1
+		}
+		
+		</script>
+<body>
+    <div>
+		<button>按钮一</button>
+		<button>按钮二</button>
+    </div>
+</body>
+</html>
+<!-- 
+1、let不能重复声明 var 可以
+	 var a = 1;
+	 var a = 2;//不会报错
+	 let b = 1;
+	 let b = 2;//报错
+2、块级作用域  let可以 var不行
+
+ 
+ 
+ -->

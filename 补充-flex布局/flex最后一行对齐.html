@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="list"></div>
+    <div class="list"></div>
+    <div class="list"></div>
+    <div class="list"></div>
+    <div class="list"></div>
+    <div class="list"></div>
+    <div class="list"></div>
+</div>
+</body>
+</html>
+<style>
+    .container {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(auto-fill, 100px);
+        grid-gap: 10px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .list {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        margin-top: 5px;
+    }
+
+</style>

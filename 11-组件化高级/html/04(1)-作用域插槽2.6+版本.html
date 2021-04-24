@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="utf-8">
+	<title>Title</title>
+	<body>
+		<div id="app">
+			<!--1  使用默认插槽内容 -->
+			<!-- <cpn></cpn> -->
+			
+			<!--2 插槽内容被替换 -->
+		<!-- 	<cpn>
+				<template v-slot="slotProps">
+					<h3>{{slotProps.user.lastName}}</h3>
+				</template>
+			</cpn> -->
+		
+		<!-- 3 默认作用域插槽省略写法 -->
+		<cpn v-slot="slotProps">
+				<h3>{{slotProps.user.lastName}}</h3>
+		</cpn>
+		
+		</div>
+		<template id="cpn">
+			<div>
+				<slot :user="userInfo">
+				<h3>{{userInfo.firstName}}</h3>
+				</slot>
+			</div>
+		</template>
+		<!-- 
+父组件模板的所有东西都会在父级作用域内编译；子组件模板的所有东西都会在子级作用域内编译
+ -->
+		<script src="../js/vue.js"></script>
+		<script>
+			const cpn = {
+				template: "#cpn",
+				data(){
+					return {
+						userInfo:{
+							firstName:'Steve',
+							lastName: 'Jobs'
+						}
+					
+					}
+				}
+			}
+			const app = new Vue({
+				el: "#app",
+				data: {
+					
+				},
+				components: {
+					cpn
+				}
+			})
+		</script>
+	</body>
+</html>

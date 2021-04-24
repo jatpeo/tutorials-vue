@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app">
+			<!-- 
+			 key与显示内容一一对应，提高效率
+			 key不可是index，index会变化，
+			 key：保证唯一性
+			 -->
+			<ul>
+				<li v-for="item in letters" :key="item">
+				{{item}}
+				</li>
+			</ul>
+		</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            letters:['A','B','C','D','E','F']
+        }
+    })
+
+</script>
+</body>
+</html>2

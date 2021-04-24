@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<span v-if="flag">
+				<label for="username">用户名</label>
+				<input type="text" name="username" id="" value="" placeholder="用户名" key="username-input"/>
+			</span>
+			<span v-else>
+				<label for="email">用户邮箱</label>
+				<input type="text" name="email" id="" value="" placeholder="用户邮箱" key="password-input"/>
+			</span>
+			<br>
+			<button type="button" @click="flag = !flag">切换登陆</button>
+			
+			
+		</div>
+	</body>
+	<script src="../js/vue.js"></script>
+	<!-- 
+	 问题：在有输入内容情况下，进行切换，文字还是之前的文字？
+	 解答：Vue在进行DOM渲染时，出于性能考虑，会尽可能的复用已经存在的元素，而不是重新创建新的元素。
+	 解决方案：如果我们不希望Vue出现类似重复利用的问题，可以给对应的input添加key						并且我们需要保证key的不同
+	 
+	 -->
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				flag:true
+			},
+			methods:{
+				
+			}
+		})
+		
+	</script>
+</html>

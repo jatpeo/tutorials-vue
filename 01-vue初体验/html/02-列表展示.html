@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+        <ul>
+            <li v-for='item in movies'>{{item}}</li>
+        </ul>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+                msg:'你好啊李欢迎',
+                movies:['迪迦','盖亚','戴拿','阿古茹']
+            }
+        })
+    </script>
+</body>
+</html>

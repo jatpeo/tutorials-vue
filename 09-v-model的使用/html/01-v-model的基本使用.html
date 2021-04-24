@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+        <input type="text" name="" id="" value="" v-model="msg" />
+		<h3>{{msg}}</h3>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        /**
+		 * 1 双向绑定
+		 */
+        const app = new Vue({
+            el:"#app",  //用户要挂载管理的元素
+            data:{
+                msg:'你好啊李欢迎'
+            }
+        })
+    </script>
+</body>
+</html>

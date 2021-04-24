@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<span v-if="flag">
+				<label for="username">用户名</label>
+				<input type="text" name="username" id="" value="" placeholder="用户名"/>
+			</span>
+			<span v-else>
+				<label for="email">用户邮箱</label>
+				<input type="text" name="email" id="" value="" placeholder="用户邮箱"/>
+			</span>
+			<br>
+			<button type="button" @click="flag = !flag">切换登陆</button>
+			
+			
+		</div>
+	</body>
+	<script src="../js/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				flag:true
+			},
+			methods:{
+				
+			}
+		})
+		
+	</script>
+</html>

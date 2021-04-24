@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		/**
+		 * 1、拷贝对象（深拷贝）
+		 */
+		// let p1 = { name: "Amy", age: 15 }
+		// let xiaoming = {...p1}
+		// console.log(xiaoming)
+		
+		/**
+		 * 2 合并对象
+		 */
+		 let age1 = { age: 15 };
+		 let name1 = { name: "Amy" };
+		 let p2 = {name:"zhangsan"};
+		 p2 = {...age1,...name1};
+		console.log(p2)
+		
+		
+	</script>
+	<body>
+	</body>
+</html>

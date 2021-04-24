@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn :cmovies="movies" :cmsg="msg"></cpn>
+		</div>
+	</body>
+</html>
+<template id="cpn">
+	<div>
+		<h2>{{cmovies}}</h2>
+		<h4>{{cmsg}}</h4>
+		<h5>{{che}}</h5>
+	</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+	const cpn= {
+		template:'#cpn',
+		 //1数组形式
+		//props:['cmovies'] 
+		//2 类型限制，提供一些默认值
+		props:{
+			cmsg:String,
+			//类型限制，不传则会显示默认值
+			che:{
+				type:String,
+				default:'jack',
+				required:true  //组件必须传值
+			},
+			//vue2.5之后 类型是对象或者数组时，默认值必须是一个函数
+			cmovies:{
+				type:Array,
+				default(){
+					return []
+				}
+			}
+			
+		}
+	};
+	const app = new Vue({
+		el:'#app',
+		data:{
+			msg:'hello boy',
+			movies:['老大','老二','老三','老四']
+		},
+		components:{
+			cpn
+		}
+	})
+</script>

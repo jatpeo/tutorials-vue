@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn ></cpn>
+			<cpn ref="bb"></cpn>
+			<cpn ref="cc"></cpn>
+			<button type="button" @click="btnClick">按钮</button>
+		</div>
+	</body>
+</html>
+<template id="cpn">
+	<div>
+		<h2>我是子组件</h2>
+	</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+	const cpn = {
+		template:"#cpn",
+		data(){
+			return{
+				name:'我是子组件data'
+			}
+		},
+		methods:{
+			showMessage(){
+				console.log('showMsg')
+			}
+		}
+	}
+
+	const app = new Vue({
+		el:"#app",
+		data:{
+			
+		},
+		components:{
+			cpn
+		},
+		methods:{
+			btnClick(){
+				console.log('btnclick')
+				//访问子组件
+				/**
+				 * 1 使用$children来进行去子组件的对象，缺点：多个组件要使用下标索引进行拿取，扩展性不好
+				 * 
+				 */
+				// console.log(this.$children)
+				// this.$children[0].showMessage()
+				// for(let c of this.$children){
+				// 	console.log(c.name)
+				// 	c.showMessage()
+				// }
+				/**
+				 * 2 组件上使用 ref标记,然后用$refs，
+				 * 对象类型，默认为空
+				 */
+				console.log(this.$refs)
+				console.log(this.$refs.bb) //访问具体的某一个
+				
+			}
+		}
+	})
+</script>

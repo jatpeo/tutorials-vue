@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>Title</title>
+<body>
+    <div id="app"> 
+		<!-- v-slot 只能添加在 <template> 上 (只有一种例外情况)，这一点和已经废弃的 slot attribute 不同。 -->
+			 <cpn>
+		  <template v-slot:left>
+		    <h1>Here might be a page title</h1>
+		  </template>
+			 </cpn>
+			 
+			 <cpn>
+				 <template #right>
+					 <h3>i am a Chinese</h3>
+				 </template>
+			 </cpn>
+    </div>
+<template id="cpn">
+	<div>
+		<slot name="left"><span>left</span></slot>
+		<slot name="center"><span>center</span></slot>
+		<slot name="right"><span>right</span></slot>
+	</div>
+</template>
+<!-- 
+1 插槽的基本使用
+2 插槽的默认值 <slot><span>sss<span></slot>
+3.多个值同时放在组件中进行替换，一起作为替换元素。
+ 
+ -->
+    <script src="../js/vue.js"></script>
+    <script>
+		const cpn  = {
+			template:"#cpn",
+		}
+        const app = new Vue({
+            el:"#app",  
+            data:{
+                msg:'你好啊李欢迎'
+            },
+						components:{
+							cpn
+						}
+        })
+    </script>
+</body>
+</html>

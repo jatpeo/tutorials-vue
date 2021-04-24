@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Title</title>
+<style>
+    .bgRed {
+        color: red;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='(item,index) in list' @click="changeColor(index)" :class="{bgRed:currentIndex===index}">{{item}}
+            </li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                list: ['赛文', '泰罗', '戴拿', '佐菲'],
+								currentIndex:0,
+                isRed: false
+            },
+            methods: {
+                changeColor(index) {
+                   this.currentIndex = index
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
