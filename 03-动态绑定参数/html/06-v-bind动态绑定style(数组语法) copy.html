@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="utf-8">
-    <title>Title</title>
+<meta charset="utf-8">
+<title>Title</title>
+
 <body>
     <div id="app">
-		
-		 <h2 :style="[baseStyle,baseStyle1]">{{msg}}</h2>
-				 
-		</div>
-<script src="../js/vue.js"></script>
-<!-- 
+
+        <h2 :style="[baseStyle,baseStyle1]">{{msg}}</h2>
+
+        <h3 :style="[stye1]">hello</h3>
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <!-- 
  style绑定{key属性名,value属性值}
  class绑定{key类名 ,value；boolean}
  -->
-<script>
-    const app = new Vue({
-        el:'#app',
-        data:{
-            msg:'hello world',
-						baseStyle:{fontSize:'34px',color:'red'},
-						baseStyle1:{backgroundColor:'yellow'}
-        }
-    })
-
-</script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world',
+                baseStyle: {
+                    fontSize: '34px',
+                    color: 'red'
+                },
+                baseStyle1: {
+                    backgroundColor: 'yellow'
+                },
+                stye1:{
+                    fontSize:'24px',
+                    color:'red'
+                }
+            }
+        })
+    </script>
 </body>
+
 </html>

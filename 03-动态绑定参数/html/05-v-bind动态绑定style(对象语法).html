@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="utf-8">
-    <title>Title</title>
+<meta charset="utf-8">
+<title>Title</title>
+
 <body>
     <div id="app">
-			<!-- 1、属性值务必加上单引号，否则按变量去解析-->
-		 <h2 :style="{fontSize:'50px'}">{{msg}}</h2>
-		 <!-- 2、y -->
-			<h2 :style="{fontSize:fontSize}">{{msg}}</h2> 	
-			<!-- 3、 -->	 
-		 <h2 :style="{fontSize:size+'px'}">{{msg}}</h2>
-				 
-		</div>
-<script src="../js/vue.js"></script>
-<!-- 
+        <!-- 1、属性值务必加上单引号，否则按变量去解析-->
+        <h2 :style="{fontSize:'50px'}">{{msg}}</h2>
+        <!-- 2、y -->
+        <h2 :style="{fontSize:fontSize}">{{msg}}</h2>
+        <!-- 3、 -->
+        <h2 :style="{fontSize:size+'px'}">{{msg}}</h2>
+
+        <!-- 复习 -->
+        <h3 :style="{color:'red'}">复习</h3>
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <!-- 
  style绑定{key属性名,value属性值}
  class绑定{key类名 ,value；boolean}
  -->
-<script>
-    const app = new Vue({
-        el:'#app',
-        data:{
-            msg:'hello world',
-						fontSize:'6px',
-						size:68
-        }
-    })
-
-</script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world',
+                fontSize: '6px',
+                size: 68
+            }
+        })
+    </script>
 </body>
+
 </html>

@@ -12,6 +12,11 @@
         .test2{
            background-color: teal;
         }
+        .test3{
+            background-image: url('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png');
+            width: 300px;
+            height: 300px;
+        }
     </style>
 <body>
     <div id="app">
@@ -23,6 +28,8 @@
        <!-- 对象语法补充 -->
        <h4 :class='getClass()'>{{msg}}</h4>
        <button @click='btnClick'>点一下</button>
+       <!-- 复习 -->
+       <div :class="{test3:isActive}"></div>
     </div>
 <script src="../js/vue.js"></script>
 <script>
@@ -32,7 +39,8 @@
            msg:'hello',
            active:'active',
            test2:'test2',
-           test1:true
+           test1:true,
+           isActive:true
         },
         methods:{
             getClass(){
@@ -40,6 +48,7 @@
                 return {test1:this.test1}
             },
             btnClick(){
+                this.isActive = !this.isActive;
                 return this.test1 = !this.test1
             }
         }

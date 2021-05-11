@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <meta charset="utf-8">
     <title>Title</title>
 <body>
@@ -24,12 +24,6 @@
 		<slot name="right"><span>right</span></slot>
 	</div>
 </template>
-<!-- 
-1 插槽的基本使用
-2 插槽的默认值 <slot><span>sss<span></slot>
-3.多个值同时放在组件中进行替换，一起作为替换元素。
- 
- -->
     <script src="../js/vue.js"></script>
     <script>
 		const cpn  = {

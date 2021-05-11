@@ -10,7 +10,7 @@
     <script src="../js/vue.js"></script>
     <script>
 		/**
-		 * 1 全局组件注册的语法糖(2.x版本内部将extend对象默认传过来)
+		 * 1、全局组件注册的语法糖(2.x版本内部将extend对象默认传过来)
 		 */
 	   Vue.component('my-cpn',{
 		   template:`
@@ -26,7 +26,10 @@
             data:{
                 
             },
-			components:{   //局部组件注册 语法糖方式
+            /**
+             * 2、局部组件注册 语法糖方式
+             */
+			components:{
 				'cpp':{
 					template:`
 					<div>

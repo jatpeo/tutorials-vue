@@ -30,7 +30,7 @@ const store = new Vuex.Store({
     decrement(state) {
       state.conter--;
     },
-    incrementCount(state, payload) {
+    incrementCount(state, payload) { //代参数
       console.log(payload);
       state.counter += payload.count
     },
@@ -82,7 +82,7 @@ const store = new Vuex.Store({
 
 
   },
-  getters: {
+  getters: {   //计算属性
     powerCounter(state) {
       return state.counter * state.counter;  //计算平方
     },

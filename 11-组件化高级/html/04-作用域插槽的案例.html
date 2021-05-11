@@ -25,6 +25,7 @@
 		<template id="cpn">
 			<div>
 				<slot :data="pLanguages">
+<!--					会覆盖-->
 					<ul>
 						<li v-for="item in pLanguages">{{item}}</li>
 					</ul>
