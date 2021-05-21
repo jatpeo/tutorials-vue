@@ -14,16 +14,16 @@
 				// console.log(b)
 				// }
 			//2 块级作用域引起的问题 if块级  var没有块级
-			// var func
-			// 	if(true){
-			// 		var name = 'jj';
-			// 		func = function(){
-			// 			console.log(name)
-			// 		}
+			var func
+				if(true){
+					var name = 'jj';
+					func = function(){
+						console.log(name)
+					}
 					
-			// 	}
-			// 	//console.log(name)
-			// 	func()
+				}
+				//console.log(name)
+				func()
 				
 			//3 块级作用域引起的问题 for块级 var没有块级
 			//es5
@@ -51,26 +51,26 @@
 		/**
 		 * ps：es5 解决if，for作用域 可以使用闭包，利用函数有作用域
 		 * */
-		var btns = document.getElementsByTagName('button');
-		for(var i=0;i<5;i++){
-			(function(num){
-				btns[i].addEventListener('click',function(){
-				 console.log("第"+num+"个按钮被点击")
-				   })
-			})(i) //调用匿名函数
-		}
-	
-		
-		//or循环中设置循环变量的部位是一个父作用域，循环体内部是个子作用域。
-		{
-		  let a = 1;
-		  {
-		    //console.log(a);//报错，暂时性死域，在let a前面使用a不合法
-		    let a = 2;
-		    console.log(a);//2
-		  }
-		  console.log(a);//1
-		}
+		// var btns = document.getElementsByTagName('button');
+		// for(var i=0;i<5;i++){
+		// 	(function(num){
+		// 		btns[i].addEventListener('click',function(){
+		// 		 console.log("第"+num+"个按钮被点击")
+		// 		   })
+		// 	})(i) //调用匿名函数
+		// }
+        //
+		//
+		// //or循环中设置循环变量的部位是一个父作用域，循环体内部是个子作用域。
+		// {
+		//   let a = 1;
+		//   {
+		//     //console.log(a);//报错，暂时性死域，在let a前面使用a不合法
+		//     let a = 2;
+		//     console.log(a);//2
+		//   }
+		//   console.log(a);//1
+		// }
 		
 		</script>
 <body>

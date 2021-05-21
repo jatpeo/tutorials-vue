@@ -11,34 +11,34 @@
 		 */
 		
 		//bad
-		// const a = {name:'lisi',age:28,};
-		// const b = {
-		// 	name:'asf',
-		// 	age:123
-		// };
+		const a = {name:'lisi',age:28,};
+		const b = {
+			name:'asf',
+			age:123
+		};
 		
 		//good
-		// const a = {name:'lisi',age:28};
-		// const b = {
-		// 	name:'asf',
-		// 	age:123,
-		// };
+		const a = {name:'lisi',age:28};
+		const b = {
+			name:'asf',
+			age:123,
+		};
 		
 		/**
 		 * 2  对象尽量静态化，一旦定义，就不得随意添加新的属性。如果添加属性不可避免，要使用Object.assign方法。
 		 */
 		//bad
-		// const a = {};
-		// a.name='lisi';
+		const a = {};
+		a.name='lisi';
 		
 		// if reshape unavoidable
-		// const a = {};
-		// Object.assign(a, { x: 3 });
-		// console.log(a)
+		const a = {};
+		Object.assign(a, { x: 3 });
+		console.log(a)
 		
 		//good
-		// const a = {x:null};
-		// a.x = 34
+		const a = {x:null};
+		a.x = 34
 		
 		/**
 		 * 3 如果对象的属性名是动态的，可以在创造对象的时候，使用属性表达式定义。
@@ -48,11 +48,11 @@
 			return key=='1'?'单身':'男';
 		}
 		//bad
-		// const obj = {
-		//   id: 5,
-		//   name: 'San Francisco',
-		// }
-  //   obj[getkey("1")] = true;
+		const obj = {
+		  id: 5,
+		  name: 'San Francisco',
+		}
+  	    obj[getkey("1")] = true;
 		
 		//good
 		const obj = {
